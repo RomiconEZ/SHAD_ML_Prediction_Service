@@ -1,7 +1,12 @@
+import lleaves
 import pandas as pd
 
+llvm_model = lleaves.Model(model_file="model.txt")
+llvm_model.compile(use_fp64=False, fblocksize=llvm_model.num_trees())
+
+
 def predict(df: pd.DataFrame) -> pd.DataFrame:
-    # Implement inference logic
-    # This is just a placeholder
-    df['score'] = df.apply(lambda row: 0.5, axis=1)
-    return df
+    prediction = (llvm_model.predict(df, n_jobs=1) >= 0.5).astype(int)
+    predictions_df = pd.DataFrame({"client_id": df.index, "preds": prediction})
+
+    return predictions_df
