@@ -39,7 +39,14 @@
 - Предоставить ссылку на код проекта на GitHub. Репозиторий должен быть публичным.
 
 ## Development
-
+**Запуск сервиса**
+```bash
+docker-compose up --build
+```
 **Форматирование кода**
-* poetry run isort backend
-* poetry run black backend
+```bash 
+poetry run isort backend
+```
+```bash
+poetry run black backend
+```
