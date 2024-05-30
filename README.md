@@ -1,4 +1,26 @@
-## Домашнее задание по ML Ops
+# SHAD Prediction Service
+## Project description
+* Проект состоит из backend-части на FastAPI и frontend-части на React (порт 3000).
+
+* В качестве модели для предсказания используется скомпилированная LGBMClassifier. 
+Качество модели на полном тестовом датасете по метрике f1: 0.64959
+
+* Все файлы доступны для скачивания в течение 30 минут после их генерации.
+
+## Start project
+```bash
+docker-compose up --build
+```
+## Development
+**Format code**
+```bash 
+poetry run isort backend
+```
+```bash
+poetry run black backend
+```
+
+## ML Ops task
 
 **Задача**: Упаковать в Docker сервис вашу ML модель для подготовки файла в формате, необходимом для `sample_submission`.
 
@@ -37,16 +59,3 @@
 **Как отправить результат**:
 - Предоставить ссылку на Docker Image в вашем репозитории на Docker Hub. Репозиторий должен быть публичным.
 - Предоставить ссылку на код проекта на GitHub. Репозиторий должен быть публичным.
-
-## Development
-**Запуск сервиса**
-```bash
-docker-compose up --build
-```
-**Форматирование кода**
-```bash 
-poetry run isort backend
-```
-```bash
-poetry run black backend
-```
